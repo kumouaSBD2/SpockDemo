@@ -1,5 +1,7 @@
 import spock.lang.Specification
 
+import java.util.stream.Collectors
+
 class FirstSpecification extends Specification {
 
     def "one plus one should equal two"() {
@@ -32,15 +34,29 @@ class FirstSpecification extends Specification {
 
     def "Should be able to give 'c'"() {
         given:
-        def list = ['a', 'b', 'c']
+        List<String> list = ['a', 'b', 'c']
 
         when:
-        List<String> str = list.stream()
-        .filter({ e -> e == 'c' })
-        .toArray()
+        List<String> str = list
+                .stream()
+                .filter({ e -> e == 'c' })
+                .collect(Collectors.toList())
 
         then:
         str == ['c']
     }
+
+    def "numbers to the power of two"(int a, int b, int c) {
+        expect:
+        Math.pow(a, b) == c
+
+        where:
+        a | b | c
+        1 | 2 | 1
+        2 | 2 | 4
+        3 | 2 | 9
+    }
+
+
 
 }
