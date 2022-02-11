@@ -5,10 +5,12 @@ import com.example.SpockDemo.persistence.repository.BookRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.util.List;
 
 @Configuration
+@EnableJpaRepositories(basePackages = "com.example.SpockDemo.persistence.repository")
 public class BookConfig {
 
     @Bean
