@@ -32,14 +32,14 @@ class FirstSpecification extends Specification {
         list == [2, 3, 4]
     }
 
-    def "Should be able to give 'c'"() {
+    def "Should be able to give filter c from list"() {
         given:
-        List<String> list = ['a', 'b', 'c']
+        List<String> list = ["a", "b", "c"]
 
         when:
         List<String> str = list
                 .stream()
-                .filter({ e -> e == 'c' })
+                .filter({ e -> e == "c" })
                 .collect(Collectors.toList())
 
         then:
