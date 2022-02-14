@@ -55,5 +55,7 @@ public class BookService {
             book.setAuthor(author);
         }
 
+        bookRepository.save(book);
+
     }
 }
